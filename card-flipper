@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Flip Effect</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .card-container {
+            perspective: 1000px;
+            width: 350px;
+            height: 220px;
+        }
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+        }
+        .card-container:hover .card {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .front {
+            background: linear-gradient(135deg, #0073e6, #0044cc, #003399);
+            color: white;
+            background-image: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+            background-blend-mode: overlay;
+        }
+        .back {
+            background: linear-gradient(135deg, #333, #444, #555);
+            transform: rotateY(180deg);
+            color: white;
+            background-image: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+            background-blend-mode: overlay;
+        }
+        .card-number {
+            font-size: 20px;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin-top: 10px;
+        }
+        .card-holder, .valid-thru {
+            font-size: 14px;
+            font-family: 'Arial', sans-serif;
+            letter-spacing: 1px;
+        }
+        .card-holder {
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .card-brand {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .magnetic-strip {
+            height: 40px;
+            background-color: #222;
+            margin: 10px 0;
+        }
+        .signature {
+            background-color: #ccc;
+            height: 30px;
+            width: 80%;
+            margin: 10px 0;
+        }
+        .cvv {
+            font-size: 16px;
+        }
+        .chip {
+            width: 50px;
+            height: 40px;
+            background: linear-gradient(135deg, #ffd700, #ffcc00, #ffbf00);
+            border-radius: 5px;
+        }
+        .bank-name {
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .visa-logo {
+            width: 60px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+        .valid-thru {
+            margin-top: 10px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card">
+            <div class="card-face front">
+                <div class="bank-name">Global Bank</div>
+                <div class="chip"></div>
+                <div class="card-number">4539 1234 5678 9123</div>
+                <div class="valid-thru">Valid Thru: 12/25</div>
+                <div class="card-holder">Gaurav B R</div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png" alt="Visa Logo" class="visa-logo">
+            </div>
+            <div class="card-face back">
+                <div class="magnetic-strip"></div>
+                <div style="margin: 10px 0;">
+                    <span class="cvv-label">CVV:</span>
+                    <span class="cvv">123</span>
+                </div>
+                <div class="signature"></div>
+                <div class="bank-name" style="text-align: center; margin-top: 10px;">Global Bank<br/>Customer Service: 1-800-123-4567</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
